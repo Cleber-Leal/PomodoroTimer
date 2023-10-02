@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./main.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body class="body" data-contexto="foco">
+    <main>
+        <header class="header">
+            <figure class="header__logo-figure">
+                <img class="header__logo-image" src="/image/logo.png" alt="">
+            </figure>
+        </header>
+        <section class="banner-container">
+            <h1 class="banner__title">
+                Otimize sua produtividade,<br>
+                <strong class="banner__title-strong">mergulhe no que importa.</strong>
+            </h1>
+            <figure class="banner__image-figure">
+                <img class="banner__image" src="/image/foco.png" alt="">
+            </figure>
+        </section>
+        <section class="time__container foco">
+            <div class="container__list">
+                <ul class="container__list-options">
+                    <li class="list-option">
+                        <button data-contexto="foco" class="list-option-btn list-option-btn--foco foco active">Foco</button>
+                    </li>
+                    <li class="list-option">
+                        <button data-contexto="descanso curto" class="list-option-btn list-option-btn--descanso-curto descanso-curto">descanso curto</button>
+                    </li>
+                    <li class="list-option">
+                        <button data-contexto="descanso longo" class="list-option-btn list-option-btn--descanso-longo descanso-longo">descanso longo</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="timer" class="app__card-timer"></div>
+            <ul class="app__card-list">
+                <li class="app__card-list-item">
+                    <label class="toggle">
+                        <input class="toggle-checkbox descanso-curto"  type="checkbox" id="alternar-musica">
+                        <div class="toggle-switch foco">
+                            <button class="toggle-switch-btn foco"></button>
+                        </div>
+                    </label>
+                </li>
+                <li class="app__card-list-item">
+                    <label class="app__card-list-label" for="alternar-musica">
+                        Música
+                    </label>
+                </li>
+            </ul>
+            <div class="app__card-primary-button-wrapper">
+                <button id="start-pause" class="app__card-primary-button foco">
+                    <img class="app__card-primary-butto-icon" src="/image/play_arrow.png" alt="">
+                    <span>Começar</span>
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

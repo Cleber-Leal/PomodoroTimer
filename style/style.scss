@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+
+//Variaveis --
+$textColor: #FFF;
+$mainFont: 'Roboto', sans-serif;
+$gradientFoco: linear-gradient(180deg, rgba(180, 66, 247, 0.9) 0%, rgba(240, 7, 248, 0.8) 48.44%, #000000 100%), url(../image/pattern.png);
+$gradientLongo: linear-gradient(180deg, rgba(61, 27, 252, 0.9) 0%, rgba(102, 151, 241, 0.8) 48.44%, #000000 100%), url(../image/pattern.png);
+$gradientCurto: linear-gradient(180deg, rgba(17, 228, 17, 0.9) 0%, rgba(117, 238, 113, 0.8) 48.44%, #000000 100%), url(../image/pattern.png);
+$gradientBtnFoco: linear-gradient(180deg, rgba(180, 66, 247, 0.9) 0%, rgba(240, 7, 248, 0.8) 48.44%, #000000 100%);
+$gradientBtnCurto: linear-gradient(180deg, rgba(17, 228, 17, 0.9) 0%, rgba(117, 238, 113, 0.8) 48.44%, #000000 100%);
+$gradientBtnLongo: linear-gradient(180deg, rgba(61, 27, 252, 0.9) 0%, rgba(102, 151, 241, 0.8) 48.44%, #000000 100%);
+
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: $mainFont;
+}
+
+[data-contexto="foco"] {
+    background-image: $gradientFoco;
+}
+
+[data-contexto="descanso-curto"] {
+    background-image: $gradientCurto;
+}
+
+[data-contexto="descanso-longo"] {
+    background-image: $gradientLongo;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    img {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: $textColor;
+        font-weight: 300;
+        text-align: center;
+    }
+
+}
+
+.time__container {
+    display: flex;
+    flex-direction: column;
+    
+
+    align-items: center;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+
+
+    &.foco {
+        border: 1px solid rgba(180, 66, 247, 0.9);
+        background-color: rgba(180, 66, 247, 0.3);
+    }
+
+    &.descanso-curto {
+        border: 1px solid rgba(117, 238, 113, 0.9);
+        background-color: rgba(112, 238, 9, 0.3);
+    }
+
+    &.descanso-longo {
+        border: 1px solid rgba(102, 151, 241, 0.9);
+        background-color: rgba(39, 95, 248, 0.3);
+    }
+
+    .container__list-options {
+        display: flex;
+        gap: .5rem;
+        margin-bottom: 2rem;
+
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: .4rem .2rem;
+            font-size: 1rem;
+            background: transparent;
+            color: $textColor;
+            text-transform: capitalize;
+            cursor: pointer;
+
+            &.active {
+                background-color: rgba(253, 253, 253, 0.6);
+            }
+        }
+    }
+}
+
+.app__card-list {
+
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1rem;
+
+    .toggle-checkbox {
+        display: none;
+
+        &.foco {
+            &:checked~.toggle-switch {
+                background-color: blueviolet;
+            }
+
+            &:checked~.toggle-switch>button {
+                background-color: #CCC;
+                left: 21px;
+            }
+        }
+
+        &.descanso-curto {
+            &:checked~.toggle-switch {
+                background-color: green;
+            }
+
+            &:checked~.toggle-switch>button {
+                background-color: #CCC;
+                left: 21px;
+            }
+        }
+
+        &.descanso-longo {
+            &:checked~.toggle-switch {
+                background-color: blue;
+            }
+
+            &:checked~.toggle-switch>button {
+                background-color: #CCC;
+                left: 21px;
+            }
+        }
+    }
+
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+        background-color: #BBB;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+
+        &.foco {
+            border: 1px solid rgba(180, 66, 247, 0.9);
+        }
+
+        &.descanso-curto {
+            border: 1px solid rgba(112, 238, 9, 0.3);
+        }
+
+        &.descanso-longo {
+            border: 1px solid rgba(39, 95, 248, 0.3);
+        }
+
+        button {
+            height: 14px;
+            width: 14px;
+            border: none;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            pointer-events: none;
+            transition: all 300ms ease-in-out;
+
+            &.foco {
+                background-color: blueviolet;
+            }
+
+            &.descanso-curto {
+                background-color: rgb(9, 185, 62);
+            }
+
+            &.descanso-longo {
+                background-color: rgb(84, 49, 241);
+            }
+        }
+
+    }
+
+    .app__card-list-item:nth-child(2) label {
+        font-size: 1rem;
+        color: $textColor;
+    }
+
+}
+
+.app__card-primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    gap: .5rem;
+    padding: .5rem;
+    border: none;
+    border-radius: 5px;
+    color: $textColor;
+    cursor: pointer;
+
+    &.foco {
+        background-image: $gradientBtnFoco;
+    }
+
+    &.descanso-curto {
+        background-image: $gradientBtnCurto;
+    }
+
+    &.descanso-longo{
+        background-image: $gradientBtnLongo;
+    }
+}
+
+
+#timer {
+    font-size: 6rem;
+    color: $textColor;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 540px) {
+
+    .banner-container {
+        h1 {
+            text-align: start;
+        }
+    }
+
+    .time__container {
+        min-width: 500px;
+    }
+
+}
